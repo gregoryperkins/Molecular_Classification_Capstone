@@ -1,0 +1,86 @@
+So we are having a few bugs in the custom k means
+implementation, it seems to work just fine for data 
+of small dimensions, though when done with the
+actual training data, the within cluster distance
+are almost all 0s, this is very strange
+
+This could possible be due to hitting the limit size
+of a double in R, though I would think that I would get an
+errror of some kind. 
+
+Actually when testing this it will wrap to scientific
+notation so this cannot be the case, I have also investigated
+distances between to points from the data set causing issues
+and the distances seem to come up fine 
+
+things are working out better now, solved some issues
+with checking for correct dimensionality before calculation
+(this was preventing calculation before), though now it seems
+odd that multiple data points can have a 0 distance to the 
+center of the same cluster, this is impossible as all data
+points are surely different and the center cannot be mulitple
+data points
+
+bug still needs to be fixed in within_cluster_distances
+
+CHECK WHERE ELSE FEATURE NAMES MAY BE MESSED UP -- found a bug
+where I was pulling feature names as column 2 and not column 1
+
+!all(x == y) is not the same as all(x != y)
+
+now that within cluster distances still has some 0s, there
+must be no elements in the cluster for these, I will check
+this when I get backk
+
+### 10/9/2018 ###
+
+So now the clustering is fixed and an option has been added
+to not allow clusters to only contain one data point, though
+after observation the clusters with one data point are not
+coming through as the best clustering.
+
+I was going to implement the better clustering metric now
+anyway, but now that I think about it, it will change how
+the best cluster is chosen, as my current metrix only takes
+into account how close the data points are the the cluster
+centers of their cluster, and not the between cluster distance
+
+
+From wikipedia: 
+
+In analysis of variance (ANOVA) the total sum of squares is the sum of the so-called "within-samples" sum of squares and "between-samples" sum of squares, i.e., partitioning of the sum of squares. In multivariate analysis of variance (MANOVA) the following equation applies[2]
+
+    T = WithinSS + BetweenSS
+
+Now I have this measure implemented, the only thing that
+needs to change is that this measure has to be used
+to choose the best cluster, then we can get on with it
+and see what other distance measure produce better results
+
+then we can graph this measure when we use the PCs as the data
+and decrease the amount of PCs used
+
+this program can also be editted to perform k mediods, and
+the same can be done
+
+we also need to do hierarchical clustering, though this
+does not have to be done from scractch
+
+finally we should take a closer look at biclustering
+
+----------
+
+so I tested the custom clustering method on the iris data and got the same
+clustering, but the clustering 
+
+
+Ahh, I think I found why there is a discrepency, I was 
+optimizing for the largest between_ss / (within_ss + between_ss)
+while the true kmeans implementation optimizes for the smallest
+within_ss sum
+
+FOUND IT -- using the sum of the squared distances is very 
+important, it allows for one cluster to not be the best option, 
+also DO NOT USE the distance metric for this measure, actually
+use the 
+
