@@ -9,7 +9,7 @@ library(class)
 library(plotly)
 
 Sys.setenv("plotly_username"="jake_sauter")
-Sys.setenv("plotly_api_key"="I0DCLRoNDsgs8MtxqUeZ")
+Sys.setenv("plotly_api_key"="not_public_key")
 
 # first we must load the data 
 
