@@ -118,7 +118,7 @@ In brief the moderated t-statistic makes the assumption that all genes have equa
 
 ## Week 10 (Machine Learning)
 
-This week I reviewed many different machine learning algorithms, metrics and concpets, as well as implemented a few.
+This week I reviewed many different machine learning algorithms, metrics and concpets, as well as implemented a few. Due to selecting differentially expressed genes before PCA for feature construction, amazing results were obtained using very simple KNN classifier.
 
 [Machine Learning Presentation](Machine_Learning.pdf)
 
