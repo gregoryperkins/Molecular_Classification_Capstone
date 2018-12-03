@@ -131,3 +131,7 @@ For the final week of the project I wrapped up loose ends by implementing a few 
 [Machine Learning Continued Presentation](Machine_Learning_Continued.pdf)
 
 [ml.r](ml.r)
+
+## Complete Project 
+
+The concatentation of slideshows as well as the final paper encompassing all that I have learned through this process is coming soon.
