@@ -171,7 +171,7 @@ select_de_by_unusual_ratio = function(verbose=F){
 }
 
 
-select_de_by_sam = function(delta=1.2) {
+select_de_by_sam = function(delta=1.2, nperms=1000) {
 
   library(samr)
 
@@ -183,7 +183,7 @@ select_de_by_sam = function(delta=1.2) {
   data = list(x = t(training_data), y = outcomes, 
                 genenames=colnames(training_data), logged2=T)
 
-  samr.obj = samr(data, resp.type="Two class unpaired", nperms=100, random.seed=123)
+  samr.obj = samr(data, resp.type="Two class unpaired", nperms=nperms, random.seed=123)
 
   delta.table = samr.compute.delta.table(samr.obj, 
                                     min.foldchange=1.5)

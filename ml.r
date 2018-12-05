@@ -23,20 +23,20 @@ load_data()
 # now we will select differentiall expressed
 # genes using SAM
 
-source("selecting_DE_genes.r")
+#source("selecting_DE_genes.r")
 
-select_de_by_sam(1.2)
+#select_de_by_sam(1.2)
 
 # now we have sam_selected_genes, being the name
 # of all de genes selected by sam
 
 de_indices = which(colnames(AML_train_set) %in% sam_selected_genes)
 
-
 # now we can do pca on the training and testing data
 
-gene_pca = prcomp(clean_train_data[,de_indices], scale=T, center=T)
+#gene_pca = prcomp(clean_train_data, scale=T, center=T)
 
+gene_pca = prcomp(clean_train_data[, de_indices], scale=T, center=T)
 
 # We will use PCs 2-5 to classify the data, as the first
 # PC is just expression level based, which we would 
@@ -44,13 +44,15 @@ gene_pca = prcomp(clean_train_data[,de_indices], scale=T, center=T)
 
 train_data = gene_pca$x
 
-train_data = data.frame(train_data[,1:5])
+train_data = data.frame(train_data[,1:7])
 
 train_labels = as.factor(actual_train_classes)
 
 test_data = predict(gene_pca, clean_test_data[,de_indices])
 
-test_data = data.frame(test_data[,1:5])
+#test_data = predict(gene_pca, clean_test_data)
+
+test_data = data.frame(test_data[,1:7])
 
 test_labels = as.factor(actual_test_classes)
 
@@ -58,16 +60,16 @@ test_labels = as.factor(actual_test_classes)
 
 #------------------KNN------------------#
 
-knn_output = knn(train = train_data, test = test_data, cl = as.factor(train_labels), k=3)
+knn_output = knn(train = train_data[1:3], test = test_data[1:3], cl = as.factor(train_labels), k=5)
 
 table(test_labels, knn_output)
 
 
 #------------Logistic-Regression-----------#
 
-train_table = cbind(as.factor(train_labels), train_data)
+#train_table = cbind(as.factor(train_labels), train_data)
 
-colnames(train_table)[1] = "labels"
+#colnames(train_table)[1] = "labels"
 
 #model = glm(labels~.,family=binomial(link='logit'),data=train_table)
 
@@ -89,43 +91,43 @@ colnames(train_table)[1] = "labels"
 
 #----------Support-Vector-Machine----------#
 
-library(e1071)
+#library(e1071)
 
 
-model = svm(labels ~ ., data=train_table)
+#model = svm(labels ~ ., data=train_table)
 
-test_table = cbind(as.factor(test_labels), test_data)
+#test_table = cbind(as.factor(test_labels), test_data)
 
-colnames(test_table)[1] = "labels"
+#colnames(test_table)[1] = "labels"
 
-svm_output = predict(model, test_data)
+#svm_output = predict(model, test_data)
 
-table(test_labels, svm_output)
+#table(test_labels, svm_output)
 
 # can be used to tune svm params when kernels are
 # more complex 
 
-svm_tune = tune(svm, train.x = train_data, train.y = as.factor(train_labels), kernel="linear", ranges=list(cost=10^(-1:2), gamma=c(.5,1,2)))
+#svm_tune = tune(svm, train.x = train_data, train.y = as.factor(train_labels), kernel="linear", ranges=list(cost=10^(-1:2), gamma=c(.5,1,2)))
 
 #-------------Decision tree-----------------#
 
-library(tree)
+#library(tree)
 
-model = tree(labels ~ ., data.frame(train_table))
+#model = tree(labels ~ ., data.frame(train_table))
 
-tree_output = predict(model, test_data, type="class")
+#tree_output = predict(model, test_data, type="class")
 
-table(tree_output, test_labels)
+#table(tree_output, test_labels)
 
 #-------------Random Forest-----------------#
 
-library(randomForest)
+#library(randomForest)
 
-model = randomForest(x = train_data, y = train_labels, ntree = 1000)
+#model = randomForest(x = train_data, y = train_labels, ntree = 1000)
 
-forest_output = predict(model, data.frame(test_table), type="class")
+#forest_output = predict(model, data.frame(test_table), type="class")
 
-table(forest_output, test_labels)
+#table(forest_output, test_labels)
 
 
 
@@ -158,11 +160,11 @@ df_test = data.frame(test_PC1, test_PC2, test_PC3, test_PC4, test_group)
 p <- plot_ly(df_test, x = ~test_PC1, y = ~test_PC2, z = ~test_PC3, color = ~test_group, colors = c('#BF382A', '#0C4B8E')) %>%#
   add_markers()
 
-api_create(p, type="scatter3d", filename="pca_de_genes_1_2_3")
+api_create(p, type="scatter3d", filename="pca_all_genes_1_2_3")
 
 p <- plot_ly(df_test, x = ~test_PC2, y = ~test_PC3, z = ~test_PC4, color = ~test_group, colors = c('#BF382A', '#0C4B8E')) %>%#
   add_markers()
 
-api_create(p, type="scatter3d", filename="pca_de_genes_2_3_4")
+api_create(p, type="scatter3d", filename="pca_all_genes_2_3_4")
 
 }
