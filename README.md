@@ -118,7 +118,7 @@ In brief the moderated t-statistic makes the assumption that all genes have equa
 
 ## Week 10 (Machine Learning)
 
-This week I reviewed many different machine learning algorithms, metrics and concpets, as well as implemented a few.
+This week I reviewed many different machine learning algorithms, metrics and concpets, as well as implemented a few. Due to selecting differentially expressed genes before PCA for feature construction, amazing results were obtained using very simple KNN classifier.
 
 [Machine Learning Presentation](Machine_Learning.pdf)
 
@@ -131,3 +131,11 @@ For the final week of the project I wrapped up loose ends by implementing a few 
 [Machine Learning Continued Presentation](Machine_Learning_Continued.pdf)
 
 [ml.r](ml.r)
+
+## Complete Project 
+
+[Concatenation of All Presentations](Capstone_Complete_Presentation.pdf)
+
+[Capstone Talk](Capstone_Talk.pdf)
+
+Final paper encompassing all that I have learned through this process is coming soon.
