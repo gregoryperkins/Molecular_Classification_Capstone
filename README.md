@@ -134,4 +134,8 @@ For the final week of the project I wrapped up loose ends by implementing a few 
 
 ## Complete Project 
 
-The concatentation of slideshows as well as the final paper encompassing all that I have learned through this process is coming soon.
+[Concatenation of All Presentations](Capstone_Complete_Presentation.pdf)
+
+[Capstone Talk](Capstone_Talk.pdf)
+
+Final paper encompassing all that I have learned through this process is coming soon.
