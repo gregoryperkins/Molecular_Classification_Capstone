@@ -138,4 +138,4 @@ For the final week of the project I wrapped up loose ends by implementing a few 
 
 [Capstone Talk](Capstone_Talk.pdf)
 
-Final paper encompassing all that I have learned through this process is coming soon.
+[Capstone Paper](Capstone_Final_Paper.pdf)
