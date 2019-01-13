@@ -37,20 +37,20 @@ Week 4 is the first we that we are hands-on data. The first step of data analysi
 
 Please view the PCA visualizations at the following links: 
 
-[The plotting of training data on PC1, PC2 and PC3](https://plot.ly/~jake_sauter/113)
+[The plotting of training data on PC1, PC2 and PC3](https://plot.ly/~jake_sauter/135)
 
 <img src="files/images/cluster_1.png" alt="drawing" width="300"/>
 
 
-[The plotting of training data on PC2, PC3, and PC4](https://plot.ly/~jake_sauter/115)
+[The plotting of training data on PC2, PC3, and PC4](https://plot.ly/~jake_sauter/137)
 
 <img src="files/images/cluster_2.png" alt="drawing" width="300"/>
 
-[The plotting of testing data on PC1, PC2 and PC3 generated from training data](https://plot.ly/~jake_sauter/117)
+[The plotting of testing data on PC1, PC2 and PC3 generated from training data](https://plot.ly/~jake_sauter/123)
 
 <img src="files/images/cluster_3.png" alt="drawing" width="300"/>
 
-[The plotting of testing data on PC2, PC3 and PC4 generated from training data](https://plot.ly/~jake_sauter/119)
+[The plotting of testing data on PC2, PC3 and PC4 generated from training data](https://plot.ly/~jake_sauter/125)
 
 <img src="files/images/cluster_4.png" alt="drawing" width="300"/>
 
