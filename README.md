@@ -31,7 +31,7 @@ Week 4 is the first we that we are hands-on data. The first step of data analysi
 
 [clean_data.r](clean_data.r) --> [clean_gene_train_data.csv](files/clean_gene_train_data.csv) and [clean_gene_test_data.csv](files/clean_gene_test_data.csv)
 
-[load_data.r](load_data.r)
+[load_data.r](files/load_data.r)
 
 [pca.r](pca.r) --> [train_principle_components.csv](files/train_principle_components.csv) and [test_principle_components.csv](files/test_principle_components.csv)
 
@@ -39,16 +39,16 @@ Please view the PCA visualizations at the following links:
 
 [The plotting of training data on PC1, PC2 and PC3](https://plot.ly/~jake_sauter/113)
 
-<img src="/images/cluster_1.png" alt="drawing" width="300"/>
+<img src="files/images/cluster_1.png" alt="drawing" width="300"/>
 
 
 [The plotting of training data on PC2, PC3, and PC4](https://plot.ly/~jake_sauter/115)
 
-<img src="/images/cluster_2.png" alt="drawing" width="300"/>
+<img src="files/images/cluster_2.png" alt="drawing" width="300"/>
 
 [The plotting of testing data on PC1, PC2 and PC3 generated from training data](https://plot.ly/~jake_sauter/117)
 
-<img src="/images/cluster_3.png" alt="drawing" width="300"/>
+<img src="files/images/cluster_3.png" alt="drawing" width="300"/>
 
 [The plotting of testing data on PC2, PC3 and PC4 generated from training data](https://plot.ly/~jake_sauter/119)
 
