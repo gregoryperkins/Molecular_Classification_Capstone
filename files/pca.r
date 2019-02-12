@@ -55,18 +55,18 @@ df_train = data.frame(train_PC1, train_PC2, train_PC3, train_PC4, train_group)
 df_test = data.frame(test_PC1, test_PC2, test_PC3, test_PC4, test_group)
 
 # Plot the training data for pc1 pc2 pc3
-#p <- plot_ly(df_train, x = ~train_PC1, y = ~train_PC2, z = ~train_PC3, color = ~train_group, colors = c('#BF382A', '#0C4B8E')) %>%
-#  add_markers()
+p <- plot_ly(df_train, x = ~train_PC1, y = ~train_PC2, z = ~train_PC3, color = ~train_group, colors = c('#BF382A', '#0C4B8E')) %>%
+  add_markers()
 
-#api_create(p, type="scatter3d", filename="pca_train_pc1_pc2_pc3")
+api_create(p, type="scatter3d", filename="pca_train_pc1_pc2_pc3")
 
 
 # Plot the training data for pc2 pc3 pc4
 
-#p <- plot_ly(df_train, x = ~train_PC2, y = ~train_PC3, z = ~train_PC4, color = ~train_group, colors = c('#BF382A', '#0C4B8E')) %>%
-#  add_markers()
+p <- plot_ly(df_train, x = ~train_PC2, y = ~train_PC3, z = ~train_PC4, color = ~train_group, colors = c('#BF382A', '#0C4B8E')) %>%
+  add_markers()
 
-#api_create(p, type="scatter3d", filename="pca_train_pc2_pc3_pc4")
+api_create(p, type="scatter3d", filename="pca_train_pc2_pc3_pc4")
 
 # plot the predicted for pc1 pc2 PC3
 
